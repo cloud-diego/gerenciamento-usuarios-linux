@@ -1,6 +1,6 @@
 # 🐧 Gerenciamento de Usuários e Grupos no Linux (AWS EC2)
 
-Este projeto contém a documentação de um laboratório prático realizado em uma instância **Amazon Linux EC2**, com foco em criação e gerenciamento de **usuários e grupos**, além da verificação de permissões e logs do sistema.
+Este projeto contém a documentação de um laboratório prático realizado manualmente em uma instância **Amazon Linux EC2**, com foco em criação e gerenciamento de **usuários e grupos**, além da verificação de permissões e logs do sistema.
 
 -----
 
