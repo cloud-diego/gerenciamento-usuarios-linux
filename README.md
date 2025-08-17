@@ -79,7 +79,7 @@ gerenciamento-usuarios-linux/
     sudo passwd arosalez
     ```
 
-    *(Repita o processo para todos os usuários da lista)*
+    *(Repetição do processo para todos os usuários da lista)*
 
    <img width="1289" height="689" alt="02-adicionando-usuario" src="https://github.com/user-attachments/assets/15bd11f8-3c95-4564-953a-0b7cd87ec631" />
 
@@ -113,7 +113,7 @@ gerenciamento-usuarios-linux/
     sudo groupadd sales
     ```
 
-    *(Repita o processo para todos os grupos da lista)*
+    *(Repetição do processo para todos os grupos da lista)*
 
   - **Validação:**
     Verifique se os grupos existem no arquivo `/etc/group`.
@@ -146,7 +146,7 @@ gerenciamento-usuarios-linux/
     sudo usermod -a -G Sales arosalez
     ```
 
-    *(Repita o processo para todas as associações necessárias)*
+    *(Repetição do processo para todas as associações necessárias)*
 
   - **Validação:**
     Inspecione novamente o arquivo `/etc/group` para ver os usuários associados.
@@ -196,10 +196,10 @@ gerenciamento-usuarios-linux/
 ### 6\. Logs de Segurança
 
   - **Visualizar tentativas de uso indevido do `sudo`:**
-    O sistema registra tentativas de acesso administrativo no arquivo `/var/log/secure`. Podemos filtrar por eventos relacionados ao usuário `arosalez`.
-
+    O sistema registra tentativas de acesso administrativo no arquivo `/var/log/secure`.
+    
     ```bash
-    sudo cat /var/log/secure | grep arosalez
+    sudo cat /var/log/secure
     ```
 
   - **Logs:**
