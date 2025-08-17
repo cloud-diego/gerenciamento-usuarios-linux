@@ -151,9 +151,7 @@ Grupos criados:
 
   `sudo touch myFile.txt`
 
-- Erro esperado:
-
-  `arosalez is not in the sudoers file. This incident will be reported.`
+- Erro causado:
 
   <img width="1292" height="731" alt="06-erro-permissao" src="https://github.com/user-attachments/assets/60a0396f-bdc7-4772-930d-1302d8d8db86" />
 
