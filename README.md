@@ -16,6 +16,12 @@ gerenciamento-usuarios-linux/
 
 -----
 
+🛠️ **Tecnologias Utilizadas**
+
+<div align="left"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" width="50" height="50"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" width="50" height="50"/>
+
+-----
+
 ## 🎯 Objetivos
 
   - Criar novos usuários com senha padrão.
