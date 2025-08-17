@@ -23,22 +23,16 @@ gerenciamento-usuarios-linux/
 
 ---
 
-## 🕒 Duração
-
-Aproximadamente **45 minutos**.
-
----
-
 ## 🚀 Ambiente
 
 - **Serviço**: Amazon EC2  
 - **Tipo de instância**: `t3.micro` (1 vCPU, 1 GiB RAM)  
 - **Sistema Operacional**: Amazon Linux 2  
-- **Acesso**: SSH (via `.pem` para Linux/macOS ou `.ppk` para Windows)  
+- **Acesso**: SSH (via `.pem` Linux)  
 
 ---
 
-## 📌 Passos do Laboratório
+## 📌 Etapas:
 
 ### 1. Conexão via SSH
 
@@ -73,9 +67,15 @@ Aproximadamente **45 minutos**.
 ``sudo useradd arosalez
 sudo passwd arosalez``
 
+<img width="1289" height="689" alt="02-adicionando-usuario" src="https://github.com/user-attachments/assets/9cb82145-db92-4d3c-a082-7d06cefc48a4" />
+
 - Validação:
 
 ``sudo cat /etc/passwd | cut -d: -f1``
+
+<img width="1292" height="731" alt="03-lista-usuarios" src="https://github.com/user-attachments/assets/aa61ead7-a2d9-47c0-8191-c10eaeeee76a" />
+
+
 
 ---
 
@@ -98,6 +98,9 @@ Grupos criados:
 
   ``cat /etc/group``
 
+  <img width="1292" height="731" alt="04-lista-grupos" src="https://github.com/user-attachments/assets/b75d328f-de2b-4b1e-b1fd-144ecaa235c8" />
+
+
   ---
 
   # 4. Associação de Usuários aos Grupos
@@ -119,6 +122,9 @@ Grupos criados:
 - Validação:
   
   ``cat /etc/group``
+
+  <img width="1292" height="731" alt="05-usuarios-grupos" src="https://github.com/user-attachments/assets/0a03e5f7-6873-44d7-8460-1bf42b60c99e" />
+
 
   ---
 
@@ -144,6 +150,9 @@ Grupos criados:
 
   `arosalez is not in the sudoers file. This incident will be reported.`
 
+  <img width="1292" height="731" alt="06-erro-permissao" src="https://github.com/user-attachments/assets/60a0396f-bdc7-4772-930d-1302d8d8db86" />
+
+
   ---
 
 # 6. Logs de Segurança
@@ -152,9 +161,13 @@ Grupos criados:
 
   ``sudo cat /var/log/secure``
 
-- Exemplo de log:
+- Logs:
 
-  ``Aug  9 14:45:55 ip-10-0-10-217 sudo: arosalez : user NOT in sudoers ; ...``
+<img width="1292" height="731" alt="07-logs-seguranca" src="https://github.com/user-attachments/assets/20e9afa3-3fb0-45e3-9972-0e206c8af6c3" />
+
+
+
+  
 
   ---
   
