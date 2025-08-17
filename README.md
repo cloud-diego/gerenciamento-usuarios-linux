@@ -50,7 +50,7 @@ gerenciamento-usuarios-linux/
     chmod 400 labsuser.pem
 
     # Conecta-se à instância usando a chave
-    ssh -i labsuser.pem ec2-user@<public-ip>
+    ssh -i labsuser.pem ec2-user@ec2-52-42-2 07-69-us-west-2.compute.amazonaws.com
     ```
 
 <img width="1289" height="689" alt="01-conexao-ssh" src="https://github.com/user-attachments/assets/f4a2d482-cfa8-4003-92b5-61621b5f8b3e" />
