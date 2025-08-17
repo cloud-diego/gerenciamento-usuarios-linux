@@ -9,6 +9,7 @@ Este projeto contém um script em Bash que automatiza a criação e gerenciament
 gerenciamento-usuarios-linux/
 
 │── imagens
+
 │── README.md
 
 ---
