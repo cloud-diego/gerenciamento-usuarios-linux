@@ -2,186 +2,207 @@
 
 Este projeto contém a documentação de um laboratório prático realizado em uma instância **Amazon Linux EC2**, com foco em criação e gerenciamento de **usuários e grupos**, além da verificação de permissões e logs do sistema.
 
+-----
 
----
+📂 **Estrutura do Projeto**
 
-📂 Estrutura do Projeto
-
+```
 gerenciamento-usuarios-linux/
+│
+├── imagens/
+│
+└── README.md
+```
 
-│── imagens
-
-│── README.md
-
----
+-----
 
 ## 🎯 Objetivos
 
-- Criar novos usuários com senha padrão  
-- Criar grupos e associar os usuários correspondentes  
-- Realizar login como diferentes usuários  
-- Entender permissões de acesso e logs do sistema  
+  - Criar novos usuários com senha padrão.
+  - Criar grupos e associar os usuários correspondentes.
+  - Realizar login como diferentes usuários.
+  - Entender permissões de acesso e logs do sistema.
 
----
+-----
 
 ## 🚀 Ambiente
 
-- **Serviço**: Amazon EC2  
-- **Tipo de instância**: `t3.micro` (1 vCPU, 1 GiB RAM)  
-- **Sistema Operacional**: Amazon Linux 2  
-- **Acesso**: SSH (via `.pem` Linux)  
+  - **Serviço**: Amazon EC2
+  - **Tipo de instância**: `t3.micro` (1 vCPU, 1 GiB RAM)
+  - **Sistema Operacional**: Amazon Linux 2
+  - **Acesso**: SSH (via `.pem` Linux)
 
----
+-----
 
 ## 📌 Etapas:
 
-### 1. Conexão via SSH
+### 1\. Conexão via SSH
 
-- **Linux/macOS**:
-  ```bash
-  chmod 400 labsuser.pem
-  ssh -i labsuser.pem ec2-user@<public-ip>
+  - **Linux/macOS**:
+    ```bash
+    # Altera a permissão da chave para somente leitura pelo proprietário
+    chmod 400 labsuser.pem
 
-<img width="1289" height="689" alt="01-conexao-ssh" src="https://github.com/user-attachments/assets/9846d596-a16f-4a19-a3df-e44742fa21d9" />
+    # Conecta-se à instância usando a chave
+    ssh -i labsuser.pem ec2-user@<public-ip>
+    ```
 
----
+<img width="1289" height="689" alt="01-conexao-ssh" src="https://github.com/user-attachments/assets/f4a2d482-cfa8-4003-92b5-61621b5f8b3e" />
 
-# 2. Criação de Usuários
 
-- Lista de usuários criados:
+-----
 
-| Nome      | Sobrenome | User ID   | Função               | Senha Inicial  |
-| --------- | --------- | --------- | -------------------- | -------------- |
-| Alejandro | Rosalez   | arosalez  | Sales Manager        |    senha1234   |
-| Efua      | Owusu     | eowusu    | Shipping             |    senha1234   |
-| Jane      | Doe       | jdoe      | Shipping             |    senha1234   |
-| Li        | Juan      | ljuan     | HR Manager           |    senha1234   |
-| Mary      | Major     | mmajor    | Finance Manager      |    senha1234   |
-| Mateo     | Jackson   | mjackson  | CEO                  |    senha1234   |
-| Nikki     | Wolf      | nwolf     | Sales Representative |    senha1234   |
-| Paulo     | Santos    | psantos   | Shipping             |    senha1234   |
-| Sofia     | Martinez  | smartinez | HR Specialist        |    senha1234   |
-| Saanvi    | Sarkar    | ssarkar   | Finance Specialist   |    senha1234   |
+### 2\. Criação de Usuários
 
-- Exemplo de criação:
+  - Lista de usuários a serem criados:
 
-``sudo useradd arosalez``
+| Nome      | Sobrenome | User ID   | Função               | Senha Inicial |
+| :-------- | :-------- | :-------- | :------------------- | :------------ |
+| Alejandro | Rosalez   | arosalez  | Sales Manager        | senha1234     |
+| Efua      | Owusu     | eowusu    | Shipping             | senha1234     |
+| Jane      | Doe       | jdoe      | Shipping             | senha1234     |
+| Li        | Juan      | ljuan     | HR Manager           | senha1234     |
+| Mary      | Major     | mmajor    | Finance Manager      | senha1234     |
+| Mateo     | Jackson   | mjackson  | CEO                  | senha1234     |
+| Nikki     | Wolf      | nwolf     | Sales Representative | senha1234     |
+| Paulo     | Santos    | psantos   | Shipping             | senha1234     |
+| Sofia     | Martinez  | smartinez | HR Specialist        | senha1234     |
+| Saanvi    | Sarkar    | ssarkar   | Finance Specialist   | senha1234     |
 
-``sudo passwd arosalez``
+  - **Exemplo de criação de usuário e senha:**
 
-<img width="1289" height="689" alt="02-adicionando-usuario" src="https://github.com/user-attachments/assets/9cb82145-db92-4d3c-a082-7d06cefc48a4" />
+    ```bash
+    # Cria o usuário 'arosalez'
+    sudo useradd arosalez
 
-- Validação:
+    # Define a senha para 'arosalez' (será solicitado interativamente)
+    sudo passwd arosalez
+    ```
 
-``sudo cat /etc/passwd | cut -d: -f1``
+    *(Repita o processo para todos os usuários da lista)*
 
-<img width="1292" height="731" alt="03-lista-usuarios" src="https://github.com/user-attachments/assets/aa61ead7-a2d9-47c0-8191-c10eaeeee76a" />
+   <img width="1289" height="689" alt="02-adicionando-usuario" src="https://github.com/user-attachments/assets/15bd11f8-3c95-4564-953a-0b7cd87ec631" />
 
+  - **Validação:**
+    Para confirmar que os usuários foram criados, liste-os a partir do arquivo `/etc/passwd`.
 
+    ```bash
+    # Lista os nomes de todos os usuários do sistema
+    sudo cat /etc/passwd | cut -d: -f1
+    ```
 
----
+<img width="1292" height="731" alt="03-lista-usuarios" src="https://github.com/user-attachments/assets/95f58220-592c-435d-9caf-b517948256cd" />
 
-# 3. Criação de Grupos
 
-Grupos criados:
+-----
 
-• Sales 
+### 3\. Criação de Grupos
 
-• HR
+  - Grupos a serem criados:
 
-• Finance
+      - `Sales`
+      - `HR`
+      - `Finance`
+      - `Shipping`
+      - `Managers`
+      - `CEO`
 
-• Shipping
+  - **Exemplo de criação de grupo:**
 
-• Managers
+    ```bash
+    sudo groupadd sales
+    ```
 
-• CEO
+    *(Repita o processo para todos os grupos da lista)*
 
-- Exemplo:
+  - **Validação:**
+    Verifique se os grupos existem no arquivo `/etc/group`.
 
-  ``sudo groupadd sales``
+    ```bash
+    cat /etc/group
+    ```
 
-- Validação:
+<img width="1292" height="731" alt="04-lista-grupos" src="https://github.com/user-attachments/assets/5f3e9578-5723-49ef-8bff-95abc87a6aa2" />
 
-  ``cat /etc/group``
+-----
 
-  <img width="1292" height="731" alt="04-lista-grupos" src="https://github.com/user-attachments/assets/b75d328f-de2b-4b1e-b1fd-144ecaa235c8" />
+### 4\. Associação de Usuários aos Grupos
 
+  - Associações:
 
-  ---
+| Grupo    | Usuários                 |
+| :------- | :----------------------- |
+| Sales    | arosalez, nwolf          |
+| HR       | ljuan, smartinez         |
+| Finance  | mmajor, ssarkar          |
+| Shipping | eowusu, jdoe, psantos    |
+| Managers | arosalez, ljuan, mmajor  |
+| CEO      | mjackson                 |
 
-  # 4. Associação de Usuários aos Grupos
+  - **Exemplo de associação:**
+    O comando `usermod` com a flag `-aG` adiciona um usuário a um grupo.
 
-| Grupo     | Usuários                                                           |
-| --------- | ------------------------------------------------------------------ |
-| Sales     | arosalez, nwolf                                                    |
-| HR        | ljuan, smartinez                                                   |
-| Finance   | mmajor, ssarkar                                                    |
-| Shipping  | eowusu, jdoe, psantos                                              |
-| Managers  | arosalez, ljuan, mmajor                                            |
-| CEO       | mjackson                                                           |
+    ```bash
+    sudo usermod -a -G Sales arosalez
+    ```
 
-- Exemplo:
-- 
-  `sudo usermod -a -G Sales arosalez`
-  
-- Validação:
-  
-  ``cat /etc/group``
+    *(Repita o processo para todas as associações necessárias)*
 
-  <img width="1292" height="731" alt="05-usuarios-grupos" src="https://github.com/user-attachments/assets/0a03e5f7-6873-44d7-8460-1bf42b60c99e" />
+  - **Validação:**
+    Inspecione novamente o arquivo `/etc/group` para ver os usuários associados.
 
+    ```bash
+    cat /etc/group
+    ```
 
-  ---
+ <img width="1292" height="731" alt="05-usuarios-grupos" src="https://github.com/user-attachments/assets/13837eba-ac0c-4fde-ba5b-bed881848354" />
 
-# 5. Testando Login de Usuários
 
-- Troca de usuário:
+-----
 
-  ``su arosalez``
+### 5\. Testando Login de Usuários
 
-- Tentativa de criar arquivo sem permissão:
+  - **Troca de usuário:**
+    Use o comando `su` para assumir a identidade de `arosalez`.
 
-  `touch myFile.txt`
+    ```bash
+    su arosalez
+    ```
 
-- Erro esperado:
+  - **Tentativa de criar arquivo sem permissão:**
+    Após trocar de usuário, o terminal continua no diretório `/home/ec2-user`. O usuário `arosalez` não tem permissão para escrever neste local.
 
-  `touch: cannot touch ‘myFile.txt’: Permission denied`
+    ```bash
+    touch myFile.txt
+    ```
 
-- Tentativa com sudo:
+  - **Erro esperado:**
+    `touch: cannot touch ‘myFile.txt’: Permission denied`
 
-  `sudo touch myFile.txt`
+  - **Tentativa de usar `sudo`:**
+    Por padrão, um novo usuário não tem privilégios de administrador.
 
-- Erro causado por tentativa com sudo:
+    ```bash
+    sudo touch myFile.txt
+    ```
 
-  <img width="1292" height="731" alt="06-erro-permissao" src="https://github.com/user-attachments/assets/60a0396f-bdc7-4772-930d-1302d8d8db86" />
+  - **Erro por falta de permissão no `sudo`:**
+    O sistema nega a execução e informa que o usuário não está no arquivo `sudoers`, que define quem pode usar `sudo`.
 
+<img width="1292" height="731" alt="06-erro-permissao" src="https://github.com/user-attachments/assets/4d668283-d46e-4678-a60a-c11a12cfce7d" />
 
-  ---
+-----
 
-# 6. Logs de Segurança
+### 6\. Logs de Segurança
 
-- Visualizar tentativas de uso indevido do sudo:
+  - **Visualizar tentativas de uso indevido do `sudo`:**
+    O sistema registra tentativas de acesso administrativo no arquivo `/var/log/secure`. Podemos filtrar por eventos relacionados ao usuário `arosalez`.
 
-  ``sudo cat /var/log/secure``
+    ```bash
+    sudo cat /var/log/secure | grep arosalez
+    ```
 
-- Logs:
+  - **Logs:**
+    A saída do comando mostrará que a tentativa de `arosalez` usar `sudo` foi registrada como um incidente de segurança, com a mensagem `user NOT in sudoers`.
 
-<img width="1292" height="731" alt="07-logs-seguranca" src="https://github.com/user-attachments/assets/20e9afa3-3fb0-45e3-9972-0e206c8af6c3" />
-
-
-
-  
-
-  ---
-  
-
-
-
-
-
-
-
-
-
-
+<img width="1292" height="731" alt="07-logs-seguranca" src="https://github.com/user-attachments/assets/de9f755a-fd57-4530-9a7e-35613852c3d1" />
