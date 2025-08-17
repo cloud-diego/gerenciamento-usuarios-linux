@@ -119,7 +119,6 @@ Grupos criados:
 | Shipping  | eowusu, jdoe, psantos                                              |
 | Managers  | arosalez, ljuan, mmajor                                            |
 | CEO       | mjackson                                                           |
-|---------- | -------------------------------------------------------------------|
 
 - Exemplo:
 - 
