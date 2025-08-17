@@ -195,6 +195,8 @@ gerenciamento-usuarios-linux/
 
 ### 6\. Logs de Segurança
 
+  Após os testes, retornei ao usuário ec2-user com o comando exit para poder verificar os logs de segurança.
+
   - **Visualizar tentativas de uso indevido do `sudo`:**
     O sistema registra tentativas de acesso administrativo no arquivo `/var/log/secure`.
     
