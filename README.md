@@ -84,11 +84,16 @@ gerenciamento-usuarios-linux/
 
 Grupos criados:
 
-• Sales
+• Sales 
+
 • HR
+
 • Finance
+
 • Shipping
+
 • Managers
+
 • CEO
 
 - Exemplo:
