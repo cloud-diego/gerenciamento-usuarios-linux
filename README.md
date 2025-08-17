@@ -111,7 +111,7 @@ Grupos criados:
 
   # 4. Associação de Usuários aos Grupos
 
-  | Grupo     | Usuários                                                           |
+| Grupo     | Usuários                                                           |
 | --------- | ------------------------------------------------------------------ |
 | Sales     | arosalez, nwolf                                                    |
 | HR        | ljuan, smartinez                                                   |
@@ -119,7 +119,7 @@ Grupos criados:
 | Shipping  | eowusu, jdoe, psantos                                              |
 | Managers  | arosalez, ljuan, mmajor                                            |
 | CEO       | mjackson                                                           |
-| Personnel | Todos os usuários (via Managers + HR + Finance + Sales + Shipping) |
+|---------- | -------------------------------------------------------------------|
 
 - Exemplo:
 - 
