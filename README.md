@@ -64,8 +64,9 @@ gerenciamento-usuarios-linux/
 
 - Exemplo de criação:
 
-``sudo useradd arosalez
-sudo passwd arosalez``
+``sudo useradd arosalez``
+
+``sudo passwd arosalez``
 
 <img width="1289" height="689" alt="02-adicionando-usuario" src="https://github.com/user-attachments/assets/9cb82145-db92-4d3c-a082-7d06cefc48a4" />
 
