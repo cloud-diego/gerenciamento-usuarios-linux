@@ -1,6 +1,7 @@
-# Gerenciamento de Usuários e Grupos no Linux (AWS EC2)
+# 🐧 Gerenciamento de Usuários e Grupos no Linux (AWS EC2)
 
-Este projeto contém um script em Bash que automatiza a criação e gerenciamento de usuários em sistemas Linux. Ele permite adicionar múltiplos usuários de forma prática, atribuindo senhas iniciais, grupos e permissões.
+Este projeto contém a documentação de um laboratório prático realizado em uma instância **Amazon Linux EC2**, com foco em criação e gerenciamento de **usuários e grupos**, além da verificação de permissões e logs do sistema.
+
 
 ---
 
@@ -51,16 +52,16 @@ gerenciamento-usuarios-linux/
 
 | Nome      | Sobrenome | User ID   | Função               | Senha Inicial  |
 | --------- | --------- | --------- | -------------------- | -------------- |
-| Alejandro | Rosalez   | arosalez  | Sales Manager        | P\@ssword1234! |
-| Efua      | Owusu     | eowusu    | Shipping             | P\@ssword1234! |
-| Jane      | Doe       | jdoe      | Shipping             | P\@ssword1234! |
-| Li        | Juan      | ljuan     | HR Manager           | P\@ssword1234! |
-| Mary      | Major     | mmajor    | Finance Manager      | P\@ssword1234! |
-| Mateo     | Jackson   | mjackson  | CEO                  | P\@ssword1234! |
-| Nikki     | Wolf      | nwolf     | Sales Representative | P\@ssword1234! |
-| Paulo     | Santos    | psantos   | Shipping             | P\@ssword1234! |
-| Sofia     | Martinez  | smartinez | HR Specialist        | P\@ssword1234! |
-| Saanvi    | Sarkar    | ssarkar   | Finance Specialist   | P\@ssword1234! |
+| Alejandro | Rosalez   | arosalez  | Sales Manager        |    senha1234   |
+| Efua      | Owusu     | eowusu    | Shipping             |    senha1234   |
+| Jane      | Doe       | jdoe      | Shipping             |    senha1234   |
+| Li        | Juan      | ljuan     | HR Manager           |    senha1234   |
+| Mary      | Major     | mmajor    | Finance Manager      |    senha1234   |
+| Mateo     | Jackson   | mjackson  | CEO                  |    senha1234   |
+| Nikki     | Wolf      | nwolf     | Sales Representative |    senha1234   |
+| Paulo     | Santos    | psantos   | Shipping             |    senha1234   |
+| Sofia     | Martinez  | smartinez | HR Specialist        |    senha1234   |
+| Saanvi    | Sarkar    | ssarkar   | Finance Specialist   |    senha1234   |
 
 - Exemplo de criação:
 
@@ -98,7 +99,7 @@ Grupos criados:
 
 - Exemplo:
 
-  ``sudo groupadd Sales``
+  ``sudo groupadd sales``
 
 - Validação:
 
@@ -151,7 +152,7 @@ Grupos criados:
 
   `sudo touch myFile.txt`
 
-- Erro causado:
+- Erro causado por tentativa com sudo:
 
   <img width="1292" height="731" alt="06-erro-permissao" src="https://github.com/user-attachments/assets/60a0396f-bdc7-4772-930d-1302d8d8db86" />
 
