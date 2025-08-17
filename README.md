@@ -5,9 +5,11 @@ Este projeto contém um script em Bash que automatiza a criação e gerenciament
 ---
 
 📂 Estrutura do Projeto
+
 gerenciamento-usuarios-linux/
-│── script.sh         # Script principal de gerenciamento
-│── README.md         # Documentação do projeto
+
+│── imagens
+│── README.md
 
 ---
 
